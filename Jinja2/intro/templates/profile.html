@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile</title>
+  <style>
+    /* Full screen and background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f7b733, #fc4a1a);
+      overflow: hidden;
+    }
+
+    /* Card container */
+    .profile-card {
+      background: linear-gradient(145deg, #fffc, #fff8);
+      border-radius: 20px;
+      width: 400px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      text-align: center;
+      color: #333;
+      transition: transform 0.3s ease;
+      perspective: 1000px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Tilt effect on hover */
+    .profile-card:hover {
+      transform: rotateX(5deg) rotateY(-5deg) scale(1.05);
+    }
+
+    /* Shiny animation overlay */
+    .shiny {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 100%);
+      transform: rotate(25deg);
+      pointer-events: none;
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-200%) rotate(25deg); }
+      100% { transform: translateX(200%) rotate(25deg); }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #ff0066;
+      text-shadow: 1px 1px 5px #fff;
+    }
+
+    p {
+      font-weight: bold;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    h3 {
+      margin: 20px 0 10px 0;
+      color: #ff0066;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: rgba(255,255,255,0.2);
+      margin: 5px 0;
+      padding: 8px 15px;
+      border-radius: 12px;
+      transition: transform 0.2s ease, background 0.3s ease;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    li:hover {
+      transform: scale(1.1) rotate(-2deg);
+      background: rgba(255,255,255,0.4);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <div class="shiny"></div>
+    <h1>Hello {{name}}</h1>
+
+    {% if isTopper %}
+    <p>You are likely a Topper</p>
+    {% else %}
+    <p>Get that title</p>
+    {% endif %}
+
+    <h3>Your Subjects</h3>
+
+    <ul>
+      {% for subject in subjects %}
+      <li>{{ subject }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
