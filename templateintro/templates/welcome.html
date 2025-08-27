@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Granolah Arc Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00f0ff, 0 0 25px #00ffaa;
+      z-index: 2;
+      text-align: center;
+    }
+
+    /* Pixel Dragon Grid */
+    .dragon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2);
+      display: grid;
+      grid-template-columns: repeat(16, 20px);
+      grid-template-rows: repeat(16, 20px);
+      gap: 2px;
+      opacity: 0.15;
+      animation: floatDragon 8s infinite alternate ease-in-out;
+      z-index: -1;
+    }
+
+    .pixel {
+      width: 20px;
+      height: 20px;
+      background: transparent;
+    }
+
+    /* Dragon colors */
+    .teal { background: #00e5ff; }
+    .emerald { background: #00ffaa; }
+    .dark { background: #0f2027; }
+
+    @keyframes floatDragon {
+      0% { transform: translate(-50%, -50%) scale(2) rotate(0deg); }
+      100% { transform: translate(-48%, -52%) scale(2.1) rotate(3deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="dragon">
+    <!-- Simple pixel dragon (head + body swirl) -->
+    <div class="pixel"></div><div class="pixel"></div><div class="pixel teal"></div><div class="pixel teal"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+
+    <div class="pixel"></div><div class="pixel teal"></div><div class="pixel emerald"></div><div class="pixel teal"></div><div class="pixel teal"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+
+    <div class="pixel teal"></div><div class="pixel emerald"></div><div class="pixel emerald"></div><div class="pixel emerald"></div><div class="pixel teal"></div><div class="pixel teal"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+
+    <div class="pixel"></div><div class="pixel teal"></div><div class="pixel emerald"></div><div class="pixel emerald"></div><div class="pixel teal"></div><div class="pixel"></div><div class="pixel teal"></div><div class="pixel teal"></div><div class="pixel teal"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+
+    <!-- More rows would continue to shape the dragon body... -->
+  </div>
+
+  <h1>Welcome to the Cerealian Realm, {{name}} 🐉</h1>
+</body>
+</html>
