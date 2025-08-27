@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Granolah Arc Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+      z-index: -2;
+    }
+
+    .login-container {
+      background: rgba(15, 25, 35, 0.85);
+      padding: 35px;
+      border-radius: 15px;
+      text-align: center;
+      width: 370px;
+      box-shadow: 0 0 25px #00f0ff, 0 0 45px #009999;
+      position: relative;
+      z-index: 2;
+    }
+
+    .login-container h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00f0ff, 0 0 25px #00ffaa;
+    }
+
+    .login-container img {
+      width: 160px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 12px #00f0ff);
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      outline: none;
+      background: #0e1a24;
+      color: #fff;
+      box-shadow: inset 0 0 8px #00e5ff;
+    }
+
+    .login-container input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      background: linear-gradient(to right, #00ffaa, #00e5ff);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #00e5ff, 0 0 35px #00ffaa;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background: linear-gradient(to right, #00e5ff, #00ffaa);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffaa, 0 0 40px #00f0ff;
+    }
+
+    .sniper-scope {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 2px solid #00e5ff;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 2s infinite alternate;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+      100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="sniper-scope"></div>
+
+  <div class="login-container">
+    <!-- You can replace this with Granolah’s fan art or DBS logo -->
+    <img src="https://static.wikia.nocookie.net/dragonball/images/6/65/Granolah_DBSCG.png" alt="Granolah">
+    
+    <h1>Saiyan Login</h1>
+    <form action="/submit" method="post">
+      <input type="text" name="username" placeholder="Enter your Warrior ID">
+      <input type="password" name="password" placeholder="Enter your Sniper Code">
+      <input type="submit" value="Target Locked">
+    </form>
+  </div>
+</body>
+</html>
