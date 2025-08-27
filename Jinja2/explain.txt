@@ -1,0 +1,113 @@
+==========================
+      Jinja2 Cheat Sheet
+==========================
+
+1. VARIABLES
+-------------
+Use {{ variable_name }} to render Python variables.
+
+Example:
+Python:
+    name = "Nikhil"
+HTML:
+    <p>Hello, {{ name }}!</p>
+Output:
+    <p>Hello, Nikhil!</p>
+
+You can also use expressions:
+    <p>{{ 5 + 10 }}</p>        --> 15
+    <p>{{ name.upper() }}</p>  --> NIKHIL
+
+2. CONDITIONALS
+----------------
+Use {% if %}, {% elif %}, {% else %} for logic.
+
+Python:
+    isTopper = True
+    marks = 85
+HTML:
+    {% if isTopper %}
+        <p>Congratulations! You are a Topper.</p>
+    {% elif marks > 75 %}
+        <p>Good job! Keep improving.</p>
+    {% else %}
+        <p>Work harder to achieve more.</p>
+    {% endif %}
+
+3. LOOPS
+---------
+Use {% for %} to iterate over lists, dictionaries, or ranges.
+
+Python:
+    subjects = ["Math", "Science", "English"]
+HTML:
+    <ul>
+    {% for subject in subjects %}
+        <li>{{ subject }}</li>
+    {% endfor %}
+    </ul>
+
+Loop with index:
+    {% for subject in subjects %}
+        <p>{{ loop.index }}. {{ subject }}</p>
+    {% endfor %}
+
+4. FILTERS
+-----------
+Filters modify variables.
+
+Examples:
+    {{ name|lower }}      --> lowercase
+    {{ name|title }}      --> capitalize words
+    {{ "<b>Bold</b>"|safe }}  --> render raw HTML
+    {{ 3.14159|round(2) }}    --> 3.14
+    {{ list|length }}          --> length of list
+
+5. TEMPLATE INHERITANCE
+------------------------
+Create a base template and extend it.
+
+base.html:
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>{% block title %}My Website{% endblock %}</title>
+    </head>
+    <body>
+        <header>Header</header>
+        {% block content %}{% endblock %}
+        <footer>Footer</footer>
+    </body>
+    </html>
+
+home.html:
+    {% extends "base.html" %}
+    {% block title %}Home{% endblock %}
+    {% block content %}
+        <h1>Welcome to Home Page</h1>
+        <p>This is dynamic content.</p>
+    {% endblock %}
+
+6. COMMENTS
+------------
+Jinja2 comments will not appear in HTML:
+    {# This is a comment #}
+
+7. DICTIONARIES
+----------------
+Python:
+    user = {"name": "Nikhil", "age": 22}
+HTML:
+    <p>Name: {{ user.name }}</p>
+    <p>Age: {{ user['age'] }}</p>
+
+TIPS:
+------
+- {% %} -> logic/statements (if, for)
+- {{ }} -> output/variables
+- {# #} -> comments
+- Filters: |upper, |lower, |safe, |length, |round
+
+==========================
+      END OF CHEAT SHEET
+==========================
