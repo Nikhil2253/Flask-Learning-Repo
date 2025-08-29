@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %} My Feedback Site {% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+        }
+        .heading {
+            background: #09a;
+            color: white;
+            padding: 15px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        nav {
+            background: #eee;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #09a;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            min-height: 60vh;
+        }
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+        }
+        .flash {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">Feedback Page</div>
+
+    <nav>
+        <a href="/">Register</a>
+        <a href="/success">Success</a>
+    </nav>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <div class="footer">
+         &copy; Nikhil Corp.
+    </div>
+</body>
+</html>
