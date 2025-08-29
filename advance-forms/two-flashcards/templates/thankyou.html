@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Thank You
+{% endblock %}
+
+{% block content %}
+  <div class="thankyou-box">
+    <h2>Your feedback is received</h2>
+    <p>Thank you <span class="highlight">{{ username }}</span></p>
+    <p class="feedback-msg">"{{ feedback }}"</p>
+    <a href="/">Give us a new Feedback</a>
+  </div>
+{% endblock %}
