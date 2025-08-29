@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %} My Feedback Site {% endblock %}</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+
+
+</head>
+<body>
+    <div class="heading">Feedback Page</div>
+    <nav>
+        <a href="/feedback">feedback</a>
+    </nav>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <div class="footer">
+         &copy; Nikhil Corp.
+    </div>
+</body>
+</html>
